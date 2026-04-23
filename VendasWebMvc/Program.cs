@@ -1,9 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using VendasWebMvc.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("VendasWebMvcContext");
 builder.Services.AddDbContext<VendasWebMvcContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("VendasWebMvcContext") ?? throw new InvalidOperationException("Connection string 'VendasWebMvcContext' not found.")));
+    options.UseMySql(connectionString,
+        ServerVersion.AutoDetect(connectionString),
+        b => b.MigrationsAssembly("VendasWebMvc")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -23,8 +28,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
+app.UseStaticFiles();
 
-app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}").WithStaticAssets();
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
