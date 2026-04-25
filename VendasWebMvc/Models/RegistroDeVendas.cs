@@ -2,7 +2,7 @@
 
 namespace VendasWebMvc.Models
 {
-    public class RegistroDeVendas
+    public class RegistroDeVenda
     {
         public int Id { get; set; }
         public DateTime Data { get; set; }
@@ -11,11 +11,11 @@ namespace VendasWebMvc.Models
         public Vendedor Vendedor { get; set; }
 
 
-        public RegistroDeVendas()
+        public RegistroDeVenda()
         {
         }
 
-        public RegistroDeVendas(int id, DateTime data, decimal quantia, StatusDeVenda status, Vendedor vendedor)
+        public RegistroDeVenda(int id, DateTime data, decimal quantia, StatusDeVenda status, Vendedor vendedor)
         {
             Id = id;
             Data = data;

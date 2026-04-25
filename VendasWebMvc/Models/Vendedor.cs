@@ -8,7 +8,7 @@
         public decimal SalarioBase { get; set; }
         public DateTime DataDeNascimento { get; set; }
         public Departamento Departamento { get; set; }
-        public ICollection<RegistroDeVendas> Vendas { get; set; } = new List<RegistroDeVendas>();
+        public ICollection<RegistroDeVenda> Vendas { get; set; } = new List<RegistroDeVenda>();
 
 
         public Vendedor()
@@ -25,12 +25,12 @@
             Departamento = departamento;
         }
 
-        public void AddVendas(RegistroDeVendas registroVenda)
+        public void AddVendas(RegistroDeVenda registroVenda)
         {
             Vendas.Add(registroVenda);
         }
 
-        public void RemoverVendas(RegistroDeVendas registroVenda)
+        public void RemoverVendas(RegistroDeVenda registroVenda)
         {
             Vendas.Remove(registroVenda);
         }
