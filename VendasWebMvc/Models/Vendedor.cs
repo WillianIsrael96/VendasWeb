@@ -6,7 +6,7 @@
         public string Nome { get; set; }
         public string Email { get; set; }
         public decimal SalarioBase { get; set; }
-        public DateTime DataDeNascimento { get; set; }
+        public DateTime DataDeNascimento { get; set; }      
         public Departamento Departamento { get; set; }
         public ICollection<RegistroDeVenda> Vendas { get; set; } = new List<RegistroDeVenda>();
 
@@ -14,7 +14,6 @@
         public Vendedor()
         {
         }
-
         public Vendedor(int id, string nome, string email, decimal salarioBase, DateTime dataDeNascimento, Departamento departamento)
         {
             Id = id;

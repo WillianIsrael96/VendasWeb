@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VendasWebMvc.Models;
 using VendasWebMvc.Services;
 
 namespace VendasWebMvc.Controllers
 {
     public class VendedoresController : Controller
     {
-        private readonly VendedorService _vendedorService;
+        private readonly VendedorService _vendedorService;     
 
         public VendedoresController(VendedorService vendedorService)
         {
@@ -16,6 +17,19 @@ namespace VendasWebMvc.Controllers
             var list = _vendedorService.FindAll();
 
             return View(list);
+        }
+
+        public IActionResult Create()
+        {            
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Vendedor vendedor)
+        {
+            _vendedorService.Insert(vendedor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
