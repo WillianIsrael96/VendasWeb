@@ -8,6 +8,7 @@
         public decimal SalarioBase { get; set; }
         public DateTime DataDeNascimento { get; set; }      
         public Departamento Departamento { get; set; }
+        public int DepartamentoId { get; set; }
         public ICollection<RegistroDeVenda> Vendas { get; set; } = new List<RegistroDeVenda>();
 
 

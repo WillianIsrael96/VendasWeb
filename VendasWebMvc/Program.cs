@@ -18,6 +18,8 @@ builder.Services.AddScoped<SeedingService>();
 
 builder.Services.AddScoped<VendedorService>();
 
+builder.Services.AddScoped<DepartamentoService>();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
