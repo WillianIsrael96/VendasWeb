@@ -14,6 +14,8 @@ builder.Services.AddDbContext<VendasWebMvcContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<RegistroVendasService>();
+
 builder.Services.AddScoped<SeedingService>();
 
 builder.Services.AddScoped<VendedorService>();
@@ -37,6 +39,7 @@ using (var scope = app.Services.CreateScope())
     }
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
 
 app.UseAuthorization();
