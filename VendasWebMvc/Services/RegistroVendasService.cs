@@ -28,5 +28,25 @@ namespace VendasWebMvc.Services
 
             return await resultado.Include(x => x.Vendedor).Include(x => x.Vendedor.Departamento).OrderByDescending(x => x.Data).ToListAsync();
         }
+
+        public async Task<List<IGrouping<Departamento,RegistroDeVenda>>> FindByDateAgrupadoAsync(DateTime? minDate, DateTime? maxDate)
+        {
+            var resultado = from obj in _context.RegistroDeVendas select obj;
+
+            if (minDate.HasValue)
+            {
+                resultado = resultado.Where(x => x.Data >= minDate);
+            }
+            if (maxDate.HasValue)
+            {
+                resultado = resultado.Where(x => x.Data <= maxDate);
+            }
+
+            return await resultado.Include(x => x.Vendedor)
+                .Include(x => x.Vendedor.Departamento)
+                .OrderByDescending(x => x.Data)
+                .GroupBy(x => x.Vendedor.Departamento)
+                .ToListAsync();
+        }
     }
 }
