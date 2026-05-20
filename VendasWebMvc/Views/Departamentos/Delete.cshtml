@@ -6,7 +6,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<h3>Você tem certeza que deseja deletar?</h3>
+<h2>Você tem certeza que deseja deletar?</h2>
 <div>
     <h4>Departamento</h4>
     <hr />
@@ -21,7 +21,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Deletar" class="btn btn-danger" />
         <a asp-action="Index" class="btn btn-secondary ms-2">Voltar</a>
     </form>
 </div>
