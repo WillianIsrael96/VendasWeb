@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Contato";
+    ViewData["Description"] = "Entre em contato com a equipe do VendasWebMvc por meio de um formulario simples e responsivo.";
+}
+
+<section class="row justify-content-center" data-js-effect="fade-in">
+    <div class="col-lg-7">
+        <h1>Contato</h1>
+        <p class="text-muted">Envie uma mensagem para tirar duvidas sobre departamentos, vendedores ou registros de vendas.</p>
+
+        <div id="contactSuccess" class="alert alert-success d-none" role="alert">
+            Mensagem validada com sucesso. Obrigado pelo contato!
+        </div>
+
+        <form id="contactForm" novalidate>
+            <div class="mb-3">
+                <label for="contactName" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="contactName" name="name" required minlength="3" />
+                <div class="invalid-feedback">Informe seu nome com pelo menos 3 caracteres.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="contactEmail" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="contactEmail" name="email" required />
+                <div class="invalid-feedback">Informe um e-mail valido.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="contactSubject" class="form-label">Assunto</label>
+                <input type="text" class="form-control" id="contactSubject" name="subject" required minlength="4" />
+                <div class="invalid-feedback">Informe um assunto com pelo menos 4 caracteres.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="contactMessage" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="contactMessage" name="message" rows="5" required minlength="10" maxlength="300"></textarea>
+                <div class="form-text"><span id="messageCounter">0</span>/300 caracteres</div>
+                <div class="invalid-feedback">Escreva uma mensagem com pelo menos 10 caracteres.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </form>
+    </div>
+</section>

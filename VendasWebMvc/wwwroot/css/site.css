@@ -29,3 +29,21 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: none;
+  z-index: 1030;
+  border: 0;
+  border-radius: 0.25rem;
+  padding: 0.55rem 0.8rem;
+  color: #fff;
+  background: #2c3e50;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.is-visible {
+  display: inline-block;
+}
